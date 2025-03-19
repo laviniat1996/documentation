@@ -30,7 +30,7 @@
       {
         "group": "API Reference", 
         "pages": [
-          "docs/intro",
+          "docs/api-intro",
           "api/playground"
         ]
       }
