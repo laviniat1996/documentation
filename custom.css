@@ -1,0 +1,7 @@
+#navbar .nav-logo::after {
+    content: " RPC by Gateway.fm"; /* Add your text */
+    font-size: 16px; /* Adjust text size */
+    font-weight: bold;
+    color: #8950fa; /* Match brand color */
+    margin-left: 8px; /* Space between logo and text */
+}

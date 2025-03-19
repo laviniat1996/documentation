@@ -1,0 +1,52 @@
+---
+title: "Making RPC Requests with web3.py"
+sidebar_label: "RPC Requests with web3.py"
+---
+
+This guide explains how to send an RPC request to retrieve the latest block number using `web3.py`.
+
+## Install Requirements
+Ensure you have **Python 3** installed. If not, download it from [python.org](https://www.python.org/).
+
+Install the required dependencies:
+```sh
+pip install web3
+```
+
+## Creating a Script
+You can create a file (e.g., `get_block_number.py`) and add the following code:
+
+```python
+from web3 import Web3
+
+RPC_URL = "YOUR_SELECTED_RPC_URL"  # Replace with the desired API endpoint
+API_KEY = "your_api_key_here"  # Replace with your actual API key
+
+web3 = Web3(Web3.HTTPProvider(f"{RPC_URL}?apiKey={API_KEY}"))
+
+def get_block_number():
+    try:
+        block_number = web3.eth.block_number
+        print(f"Latest block number: {block_number}")
+    except Exception as error:
+        print("Error fetching block number:", error)
+
+get_block_number()
+```
+
+### Selecting an RPC Endpoint
+Replace `<YOUR_SELECTED_RPC_URL>` with one from the full list of [RPC Endpoints](./endpoints).
+
+### Getting an API Key
+To use these endpoints, you need an API key. Follow the guide [here](./get-api-key).
+
+## Running the Script
+```sh
+python get_block_number.py
+```
+
+## Result
+The output of the script should look like this:
+```sh
+lav@Lav-MacBook-Pro % python get_block_number.py
+Latest block number: 39103923

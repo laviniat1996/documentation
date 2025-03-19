@@ -1,0 +1,59 @@
+---
+title: "Making RPC Requests with ethers.js"
+sidebar_label: "RPC Requests with ethers.js"
+---
+
+This guide explains how to send an RPC request to retrieve the latest block number using `ethers.js`.
+
+## Install Requirements
+Ensure you have **Node.js** installed. If not, download it from [nodejs.org](https://nodejs.org/).
+
+Install the required dependencies:
+```sh
+# Using npm
+npm install ethers
+
+# Using Yarn
+yarn add ethers
+```
+
+## Creating a Script
+You can create a file (e.g., `getBlockNumber.js`) and add the following code:
+
+```javascript
+const { ethers } = require("ethers");
+
+const RPC_URL = "YOUR_SELECTED_RPC_URL"; // Replace with the desired API endpoint
+const API_KEY = "your_api_key_here"; // Replace with your actual API key
+
+const provider = new ethers.JsonRpcProvider(`${RPC_URL}?apiKey=${API_KEY}`);
+
+async function getBlockNumber() {
+    try {
+        const blockNumber = await provider.getBlockNumber();
+        console.log(`Latest block number: ${blockNumber}`);
+    } catch (error) {
+        console.error("Error fetching block number:", error);
+    }
+}
+
+getBlockNumber();
+```
+
+### Selecting an RPC Endpoint
+Replace `<YOUR_SELECTED_RPC_URL>` with one from the full list of [RPC Endpoints](./endpoints).
+
+### Getting an API Key
+To use these endpoints, you need an API key. Follow the guide [here](./get-api-key).
+
+## Running the Script
+```sh
+node getBlockNumber.js
+```
+## Result
+The output of the script should look like this:
+
+```sh
+lav@Lav-MacBook-Pro % node getBlockNumber.js
+Latest block number: 39103923
+```

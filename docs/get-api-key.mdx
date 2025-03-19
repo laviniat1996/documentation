@@ -1,0 +1,68 @@
+---
+title: "How to Get an API Key"
+description: "Get started by creating an RPC by Gateway.fm account."
+---
+
+### Step 1: Sign In
+Sign in to the [Gateway.fm RPC platform](https://admin.gateway.fm/projects) with your Google account.
+
+### Step 2: Create a Project
+Click **Create project** in the upper right corner.
+
+![Create Project Button](/images/api-key-guide/Screenshot(1).png)
+
+Choose a platform and region from the available options:
+- **Zurich**: Gnosis, Palm
+- **Frankfurt**: Polygon zkEVM, Soroban (Stellar)
+- **Singapore**: Gnosis
+
+![Region](/images/api-key-guide/Screenshot(8).png)
+
+### Step 3: Configure Your Project
+1. Enter a project name.
+2. Select a tag (**Development** or **Production**).
+3. Choose a platform from the dropdown list.
+4. Select the network type (**Mainnet** or **Testnet**).
+5. (Optional) Add multiple platforms to your project.
+6. Click **Create** to finalize your project setup.
+
+![Project Configuration](/images/api-key-guide/Screenshot(2).png)
+![Testnet Mainnet](/images/api-key-guide/Screenshot(3).png)
+
+
+### Step 4: Retrieve Your API Key
+1. When you open your project, the **Endpoints & API Keys** tab shows up.
+2. Click **Add new API key**.
+3. The API key will be generated and displayed once—**copy it immediately** for future use.
+
+![API Key Generation](/images/api-key-guide/Screenshot(5).png)
+
+![View API Key](/images/api-key-guide/Screenshot(6).png)
+
+
+### Step 5: Using Your API Key
+Your API key works for all selected platforms in your project. You can use it in API requests as:
+- A **Bearer Token** in the `Authorization` header.
+- A **GET parameter** in API calls.
+
+
+### Example API Request
+#### Using Bearer Token (Recommended)
+```sh
+curl --location --request POST 'https://rpc.eu-central-1.gateway.fm/v4/soroban/non-archival/mainnet' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer YOUR_API_KEY' \
+--data-raw '{
+  "jsonrpc": "2.0",
+  "method": "getHealth",
+  "id": 0
+}'
+```
+
+### Additional Notes
+- **Each API key is unique** and tied to your project.
+- **You won’t be able to see the key again** after generating it, so store it securely.
+- If needed, generate additional API keys from the **Endpoints & API Keys** section.
+
+Now you’re all set to use **Gateway.fm's RPC** services!
+
